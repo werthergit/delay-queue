@@ -106,7 +106,7 @@ public class ZkUtils {
                 LOGGER.info("succ create zk node, zkPath:{}, zkValue:{}", zkPath, zkValue);
             } else {
                 curatorClient.setData().forPath(zkPath, zkValue.getBytes(Charsets.UTF_8));
-                LOGGER.info("succ update zk node, zkPath:{}, zkValue:{}", zkPath, zkValue);
+                LOGGER.debug("succ update zk node, zkPath:{}, zkValue:{}", zkPath, zkValue);
             }
 
         } catch (Exception e) {

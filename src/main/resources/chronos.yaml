@@ -103,7 +103,7 @@ dbConfig:
 #  saveHours : 6
 
 zkConfig:
-  zkAddrs : ""
+  zkAddrs : "zk01-dev.chj.cloud:10311,zk02-dev.chj.cloud:10311,zk03-dev.chj.cloud:10311"
   zkSessionTimeoutMs : 30000
   masterPathPrefix : "/a1/dq/master"
   metaPathPrefix : "/a1/dq/meta"

@@ -19,6 +19,7 @@ public class ChronosStartup {
     private CountDownLatch waitForShutdown;
     private String configFilePath = "chronos.yaml";
 
+
     ChronosStartup(final String configFilePath) {
         if (StringUtils.isNotBlank(configFilePath)) {
             this.configFilePath = configFilePath;
@@ -58,6 +59,8 @@ public class ChronosStartup {
         /* init zk */
        ZkUtils.init();
 
+        waitForShutdown = new CountDownLatch(1);
+
         /* init seektimestamp */
         MetaService.load();
 
@@ -69,9 +72,12 @@ public class ChronosStartup {
             MasterElection.election(waitForShutdown);
         }
 
+        //todo 增加mq监听
+
         LOGGER.info("  start up.... ");
 
 
+        waitForShutdown.await();
     }
 
     void stop() {

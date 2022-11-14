@@ -1,2 +1,1 @@
-# delay-queue
-延迟队列
+# distributed delay queue 
